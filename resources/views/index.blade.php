@@ -57,65 +57,61 @@
             <div class="swiper-button-next"></div>
         </div>
     </div>  --}}
-    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+<div class="simple-slider">
+        <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="assets/img/2.jpg" class="w-100 h-100">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img/1.jpg" class="w-100 h-100">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img/desk.jpg" class="w-100 h-100">
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+    {{--  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-                <img src="assets/img/1.jpg" class="w-100" style="height: 800px" alt="...">
+            {{--  <div class="img-responsive">  --}}
+            {{--  <div class="carousel-item active" data-interval="10000">
+                <img src="assets/img/1.jpg" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                         {{--  <p></p><button class="btn btn-outline-primary btn-block btn-lg text-center bg-success border rounded border-success shadow-sm action-button" type="button">Buat Surat Online</button>  --}}
-                         <h5>...</h5>
+                        <h5>...</h5>
                         <p>...</p>
                     </div>
+                </div>
             </div>
-             <div class="carousel-item" data-interval="2000">
-                 <img src="assets/img/2.jpg" class="w-100" style="height: 800px" alt="...">
+            <div class="carousel-item" data-interval="2000">
+                <img src="assets/img/2.jpg"  alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                          {{--  <p></p><button class="btn btn-outline-primary btn-block btn-lg text-center bg-success border rounded border-success shadow-sm action-button" type="button">Buat Surat Online</button>  --}}
-                         <h5>...</h5>
+                        h5>...</h5>
                         <p>...</p>
                 </div>
             </div>
-    <div class="carousel-item">
-      <img src="assets/img/desk.jpg" class="w-100" style="height: 800px" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-     {{--  <p></p><button class="btn btn-outline-primary btn-block btn-lg text-center bg-success border rounded border-success shadow-sm action-button" type="button">Buat Surat Online</button>  --}}
-                         <h5>...</h5>
-    <p>...</p>
-  </div>
-    </div>
-  {{--  </div> <button class="btn btn-outline-light btn-block btn-lg text-center bg-primary border-primary shadow-sm action-button " style="height:55px" type="button">Buat Surat Online</button>  --}}
-
-
-    <a href="javascript:void" onclick="$('#logout-form').submit();">
-    Logout
-</a>
-
-  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-                {{--  <div class="row d-flex justify-content-center">  --}}
-                    {{--  <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">  --}}
-                        {{--  <h1>The revolution is here.</h1>  --}}
-                         {{--  <div class="col-md-0 col-lg-0 offset-lg-0 offset-xl-0 d-none d-lg-block phone-holder">  --}}
-                             {{--  <br><br>  --}}
-                        {{--  <p></p><button class="btn btn-outline-primary btn-block btn-lg text-center bg-success border rounded border-success shadow-sm action-button" type="button">Buat Surat Online</button>  --}}
-                    {{--  <br><br>  --}}
-                {{--  </div>  --}}
-
-                        {{--  <div class="iphone-mockup"><img class="device" src="assets/img/iphone.svg">  --}}
-                            {{--  <div class="screen"></div>  --}}
-                        {{--  </div>  --}}
-                    {{--  </div>  --}}
-                    {{--  </div>
+            <div class="carousel-item">
+                <img src="assets/img/desk.jpg" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>...</h5>
+                    <p>...</p>
                 </div>
-            </div>  --}}
-    {{--  </div>  --}}
+            </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+        </a>
+    </div>  --}}
 
     <div class="features-clean">
         <div class="container">
@@ -194,7 +190,25 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+sc
+<script src="../package/js/swiper.min.js"></script>
 
+<script>
+    var swiper = new Swiper('.swiper-container', {
+         autoHeight: true, //enable auto height
+        spaceBetween: 30,
+        centeredSlides: true,
+
+        autoplay: {
+        delay: 500,
+        disableOnInteraction: false,
+    },
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
 
     </div>
 
