@@ -12,7 +12,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-light p-0">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-light p-1">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     {{--  <div class="sidebar-brand-icon rotate-n-15">  --}}
@@ -25,12 +25,12 @@
 
                 {{--  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>  --}}
 
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button "  type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button " type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button "type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-warning border-warning shadow-sm action-button "type="button">Lihat Surat Online</button>
-
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-primary border-warning shadow-sm action-button "  type="button">Surat Izin Domisili</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-warning shadow-sm action-button " type="button">Surat Izin Kegiatan</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-primary border-warning shadow-sm action-button "type="button">Surat Keterangan Tidak Mampu</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-warning shadow-sm action-button "type="button">Surat Keterangan PBB</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " type="button">Edit Database Warga</button>
+                
             </div>
         </nav>
         {{--  <div class="d-flex flex-column" id="content-wrapper">
