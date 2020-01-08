@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'surat';
-    protected $fillable = ['nik', 'jenis_surat', 'sudah_cetak'];
+    protected $table = 'surat_domisili';
+    protected $fillable = ['nik'];
 
     public static function getExcerpt($str, $startPos = 0, $maxLength = 50) {
         if(strlen($str) > $maxLength) {
