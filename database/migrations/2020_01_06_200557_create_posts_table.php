@@ -13,12 +13,9 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('surat', function(Blueprint $table) {
+        Schema::create('surat-domisili', function(Blueprint $table) {
             $table->increments('id');   
             $table->string('nik');
-            $table->string('nama');
-            $table->string('jenis_surat');
-            $table->boolean('sudah_cetak')->default(false);
             $table->timestamps();
         });
     }
