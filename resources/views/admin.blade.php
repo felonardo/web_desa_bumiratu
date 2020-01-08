@@ -15,23 +15,25 @@
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-light p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+                    {{--  <div class="sidebar-brand-icon rotate-n-15">  --}}
+            <div class="illustration"><img src="assets/img/logo.png" style="height:40px" ></div>
+        {{--  </div>  --}}
+                    <div class="sidebar-brand-text mx-3"><span style="color:#1b262c;">Bumi Ratu</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar"></ul>
 
                 {{--  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>  --}}
 
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button " style="height:55px" type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button " style="height:55px" type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button " style="height:55px" type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " style="height:55px" type="button">Lihat Surat Online</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-warning border-warning shadow-sm action-button " style="height:55px" type="button">Lihat Surat Online</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button "  type="button">Lihat Surat Online</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button " type="button">Lihat Surat Online</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-success shadow-sm action-button "type="button">Lihat Surat Online</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " type="button">Lihat Surat Online</button>
+                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-warning border-warning shadow-sm action-button "type="button">Lihat Surat Online</button>
 
             </div>
         </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
+        {{--  <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
@@ -136,10 +138,11 @@
                     </div>
                     </li>
                     </ul>
-            </div>
+            </div>  --}}
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Team</h3>
+                <br>
+                <h2 class="text-dark mb-4">Halaman Admin</h2>
                 <div class="card shadow">
                     <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold">Employee Info</p>
