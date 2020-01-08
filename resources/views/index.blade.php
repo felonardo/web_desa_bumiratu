@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.jpg') }}">
+
+    <!-- CSFR token for ajax call -->
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Getting Started</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
@@ -19,9 +24,78 @@
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <!-- toastr notifications -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <style>
+        .panel-heading {
+            padding: 0;
+        }
+        .panel-heading ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .panel-heading li {
+            float: left;
+            border-right:1px solid #bbb;
+            display: block;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .panel-heading li:last-child:hover {
+            background-color: #ccc;
+        }
+        .panel-heading li:last-child {
+            border-right: none;
+        }
+        .panel-heading li a:hover {
+            text-decoration: none;
+        }
+
+        .table.table-bordered tbody td {
+            vertical-align: baseline;
+        }
+        /* icheck checkboxes */
+        .iradio_flat-yellow {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/yellow.png) no-repeat;
+        }
+    </style>
 </head>
 
 <body>
+    {{ csrf_field() }}
+    <!-- Modal form to add a post -->
+    <div id="addModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <!-- <h4 class="modal-title"></h4> -->
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik">NIK:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nik_add" autofocus>
+                                <small>Min: 16, Max: 16, Hanya Angka</small>
+                                <p class="errorNIK text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success add" data-dismiss="modal">
+                            <span id="" class='glyphicon glyphicon-check'></span> Add
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{--  <div>  --}}
         <div class="header-blue">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
@@ -180,7 +254,7 @@
             </div><br>
 
     <div class="col text-center">
-            <div class="buttons"><a class="btn btn-primary" role="button" href="/suratizindomisili">Surat Izin Domisili</a><a class="btn btn-warning" type="button" href="/suratizinkegiatan">Surat Izin Kegiatan</a></div>
+            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#">Surat Izin Domisili</a><a class="btn btn-warning" type="button" href="/suratizinkegiatan">Surat Izin Kegiatan</a></div>
             <br>
             <div class="buttons"><a class="btn btn-success" role="button" href="/suratketerangantidakmampu">Surat Keterangan Kurang Mampu</a><a class="btn btn-danger" type="button"href="/suratketeranganpbb">Surat Keterangan PBB</a></div>
             </div><br><br><br>
@@ -243,6 +317,45 @@ sc
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
+    <!-- toastr notifications -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- AJAX CRUD operations -->
+    <script type="text/javascript">
+        // add a new post
+        $(document).on('click', '.add-modal', function() {
+            $('#addModal').modal('show');
+        });
+        $('.modal-footer').on('click', '.add', function() {
+            $.ajax({
+                type: 'POST',
+                url: '/',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'nik': $('#nik_add').val()
+                },
+                success: function(data) {
+                    $('.errorNIK').addClass('hidden');
+
+                    if ((data.errors)) {
+                        setTimeout(function () {
+                            $('#addModal').modal('show');
+                            toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
+                        }, 500);
+
+                        if (data.errors.nik) {
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text(data.errors.nik);
+                        }
+                    } else {
+                        toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});
+                    }
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>
