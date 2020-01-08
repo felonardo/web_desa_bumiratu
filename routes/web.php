@@ -11,6 +11,32 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/suratizinkegiatan', function () {
+    return view('form_sik');
+});
+Route::get('/suratketeranganpbb', function () {
+    return view('form_pbb');
+});
+Route::get('/suratizindomisili', function () {
+    return view('form_domisili');
+});
+Route::get('/suratketerangantidakmampu', function () {
+    return view('form_skkm');
+});
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', function () {
+        return view('admin');
+    });
+});
+Auth::routes();
+
+// Route::get('/', 'HomeController@index')->name('home');
