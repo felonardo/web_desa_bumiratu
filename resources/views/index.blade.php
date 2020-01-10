@@ -27,6 +27,9 @@
     <!-- toastr notifications -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <style>
+        .hidden {
+            display: none !important;
+        }
         .panel-heading {
             padding: 0;
         }
@@ -65,7 +68,7 @@
 
 <body>
     {{ csrf_field() }}
-    <!-- Modal form to add a post -->
+    <!-- Modal form to add a surat domisili -->
     <div id="addModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -77,7 +80,7 @@
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="nik">NIK:</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-auto">
                                 <input type="text" class="form-control" id="nik_add" autofocus>
                                 <small>Min: 16, Max: 16, Hanya Angka</small>
                                 <p class="errorNIK text-center alert alert-danger hidden"></p>
@@ -96,6 +99,55 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal form to add a surat izin keramaian -->
+    <div id="addModal2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <!-- <h4 class="modal-title"></h4> -->
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik2">NIK:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="nik2_add" autofocus>
+                                <small>Min: 16, Max: 16, Hanya Angka</small>
+                                <p class="errorNIK text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="hiburan">Hiburan:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="hiburan_add" autofocus>
+                                <small>Min: 4, Max: 20, Hanya Huruf</small>
+                                <p class="errorHiburan text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="tanggal">Tanggal:</label>
+                            <div class="col-sm-auto">
+                                <input type="date" class="form-control" id="tanggal_add" autofocus>
+                                <!-- <small>Min: 16, Max: 16, Hanya Angka</small> -->
+                                <p class="errorTanggal text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success add2" data-dismiss="modal">
+                            <span id="" class='glyphicon glyphicon-check'></span> Add
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{--  <div>  --}}
         <div class="header-blue">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
@@ -254,7 +306,7 @@
             </div><br>
 
     <div class="col text-center">
-            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#">Surat Izin Domisili</a><a class="btn btn-warning" type="button" href="/suratizinkegiatan">Surat Izin Kegiatan</a></div>
+            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#">Surat Izin Kegiatan</a></div>
             <br>
             <div class="buttons"><a class="btn btn-success" role="button" href="/suratketerangantidakmampu">Surat Keterangan Kurang Mampu</a><a class="btn btn-danger" type="button"href="/suratketeranganpbb">Surat Keterangan PBB</a></div>
             </div><br><br><br>
@@ -324,7 +376,7 @@ sc
     
     <!-- AJAX CRUD operations -->
     <script type="text/javascript">
-        // add a new post
+        // add surat domisili
         $(document).on('click', '.add-modal', function() {
             $('#addModal').modal('show');
         });
@@ -348,6 +400,52 @@ sc
                         if (data.errors.nik) {
                             $('.errorNIK').removeClass('hidden');
                             $('.errorNIK').text(data.errors.nik);
+                        }
+                    } else {
+                        toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});
+                    }
+                },
+            });
+        });
+
+        // add surat keramaian
+        $(document).on('click', '.add-modal2', function() {
+            $('#addModal2').modal('show');
+        });
+        $('.modal-footer').on('click', '.add2', function() {
+            $.ajax({
+                type: 'POST',
+                url: 'keramaian',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'nik': $('#nik2_add').val(),
+                    'hiburan' : $('#hiburan_add').val(),
+                    'tanggal' : $('#tanggal_add').val()
+                },
+                success: function(data) {
+                    $('.errorNIK').addClass('hidden');
+                    $('.errorHiburan').addClass('hidden');
+                    $('.errorTanggal').addClass('hidden');
+
+                    if ((data.errors)) {
+                        setTimeout(function () {
+                            $('#addModal2').modal('show');
+                            toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
+                        }, 500);
+
+                        if (data.errors.nik) {
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text(data.errors.nik);
+                        }
+
+                        if (data.errors.hiburan) {
+                            $('.errorHiburan').removeClass('hidden');
+                            $('.errorHiburan').text(data.errors.hiburan);
+                        }
+
+                        if (data.errors.tanggal) {
+                            $('.errorTanggal').removeClass('hidden');
+                            $('.errorTanggal').text(data.errors.tanggal);
                         }
                     } else {
                         toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});

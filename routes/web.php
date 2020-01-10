@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/','HomeController');
-Route::post('changeStatus', array('as' => 'changeStatus', 'uses' => 'HomeController@changeStatus'));
+
+Route::resource('keramaian','KeramaianController');
 
 Route::get('/login', function () {
     return view('login');
