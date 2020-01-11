@@ -1,12 +1,13 @@
 .header-blue {
-    /* background-image: radial-gradient(circle farthest-corner at 12.3% 19.3%, rgba(85, 88, 218, 1) 0%, rgba(95, 209, 249, 1) 100.2%); */
-    background-image: radial-gradient(circle farthest-corner at 12.3% 19.3%, #141E30 0%, #243B55 100.2%);
-    /* background-color: #179c44;    */
+    /* background: linear-gradient(135deg, #00416A, #E4E5E6); */
+    background: linear-gradient(135deg, #373B44, #4286f4);
+
+    /* background-color: #A5CC82; */
     padding-bottom: 80px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .header-blue {
         padding-bottom: 120px;
     }
@@ -14,15 +15,15 @@
 
 .header-blue .navbar {
     background: transparent;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
     color: #fff;
     border-radius: 0;
     box-shadow: none;
     border: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .header-blue .navbar {
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -40,10 +41,10 @@
 
 .header-blue .navbar .navbar-collapse {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 0.5rem;
+    margin-top: .5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .header-blue .navbar .navbar-collapse {
         border-color: transparent;
         margin: 0;
@@ -52,7 +53,7 @@
 
 .header-blue .navbar .navbar-collapse span .login {
     color: #d9d9d9;
-    margin-right: 0.5rem;
+    margin-right: .5rem;
     text-decoration: none;
 }
 
@@ -71,8 +72,8 @@
 
 @media (min-width: 768px) {
     .header-blue .navbar-nav .nav-link {
-        padding-left: 0.7rem;
-        padding-right: 0.7rem;
+        padding-left: .7rem;
+        padding-right: .7rem;
     }
 }
 
@@ -95,7 +96,7 @@
 
 .header-blue .navbar .navbar-nav>li>.dropdown-menu {
     margin-top: -5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
     background-color: #fff;
     border-radius: 2px;
 }
@@ -118,7 +119,7 @@
     color: #ebeff1;
     box-shadow: none;
     text-shadow: none;
-    padding: 0.3rem 0.8rem;
+    padding: .3rem .8rem;
     background: transparent;
     transition: background-color 0.25s;
     outline: none;
@@ -154,7 +155,7 @@
     text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .header-blue .hero {
         margin-top: 60px;
         text-align: left;
@@ -170,7 +171,7 @@
     line-height: 1.4;
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .header-blue .hero h1 {
         margin-top: 190px;
         margin-bottom: 24px;
@@ -217,7 +218,7 @@
 }
 
 .header-blue .iphone-mockup .screen:before {
-    content: "";
+    content: '';
     background-color: #fff;
     position: absolute;
     width: 70%;

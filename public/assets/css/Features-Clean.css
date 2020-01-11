@@ -1,6 +1,8 @@
 .features-clean {
-    color: #313437;
-    background-color: #fff;
+    color: #fff;
+    background: linear-gradient(135deg, #373B44, #133469);
+    background-color: #373B44,
+    ;
     padding-bottom: 30px;
 }
 
@@ -11,13 +13,13 @@
 }
 
 .features-clean p {
-    color: #7d8285;
+    color: #fff;
 }
 
 .features-clean h2 {
     font-weight: bold;
-    margin-bottom: 25px;
-    padding-top: 35px;
+    margin-bottom: 40px;
+    padding-top: 40px;
     color: inherit;
 }
 
@@ -32,8 +34,7 @@
 .features-clean .intro {
     font-size: 16px;
     max-width: 500px;
-    color: #243B55;
-    margin: 0 auto 30px;
+    margin: 0 auto 60px;
 }
 
 @media (max-width:767px) {
@@ -69,7 +70,7 @@
 
 .features-clean .item .icon {
     font-size: 40px;
-    color: #243B55;
+    color: #fff;
     float: left;
     margin-left: -65px;
 }

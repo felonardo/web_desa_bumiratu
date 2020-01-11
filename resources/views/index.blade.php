@@ -10,6 +10,9 @@
     <!-- CSFR token for ajax call -->
     <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Getting Started</title>
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -167,7 +170,7 @@
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
                             {{--  <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>  --}}
-                        </form><a class="btn btn-outline-success" role="button" href="/login">Log In</a></div>
+                        </form><a class="btn btn-success" role="button" href="/login">Log In</a></div>
                 </div>
             </nav>
             {{--  <div class="container hero">  --}}
@@ -247,28 +250,28 @@
             </div>
             <div class="row features">
                 <div class="col-sm-10 col-lg-4 item"><i class="fa fa-envelope-open icon"></i>
-                    <h3 class="name">Surat Izin Domisili</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <h3 class="name">Surat Keterangan Domisili</h3>
+                    <p class="description">Surat Keterangan Domisili (SKD) merupakan surat bukti dokumen bahwa pendatang telah melakukan pelaporan resmi mengenai keberadaannya kepada pejabat yang berwenang.</p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-envelope-open icon"></i>
                     <h3 class="name">Surat Izin Kegiatan</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <p class="description">Surat Izin Keramaian merupakan surat bukti dokumen izin untuk mengadakan suatu Acara .</p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-envelope-open icon"></i>
                     <h3 class="name">Surat Keterangan Tidak Mampu</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <p class="description">Surat Keterangan Tidak Mampu merupakan surat yang dibuat untuk menyatakan atau menerangkan bahwa seseorang kurang mempunyai kemampuan atau kelebihan dalam aspek materiil di kehidupannya.</p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-envelope-open icon"></i>
                     <h3 class="name">Surat Keterangan PBB</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <p class="description">Surat Pemberitahuan Pajak Terhutang Pajak Bumi dan Bangunan (SPPT-PBB). </p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-newspaper-o icon"></i>
                     <h3 class="name">Artikel Desa</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <p class="description">Artikel-Artikel berisi terkait informasi Desa.</p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-phone icon"></i>
                     <h3 class="name">Nomor Desa</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    <p class="description">Nomor yang dapat dihubungi 089628649461.</p>
                 </div>
             </div>
         </div>
@@ -308,7 +311,9 @@
     <div class="col text-center">
             <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#">Surat Izin Kegiatan</a></div>
             <br>
-            <div class="buttons"><a class="btn btn-success" role="button" href="/suratketerangantidakmampu">Surat Keterangan Kurang Mampu</a><a class="btn btn-danger" type="button"href="/suratketeranganpbb">Surat Keterangan PBB</a></div>
+            <div class="buttons"><a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a><a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
+            <br>
+            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Penghasilan Orang Tua</a></div>
             </div><br><br><br>
         </div>
     </div>
@@ -338,33 +343,62 @@ sc
 
     </div>
 
+{{--  <!DOCTYPE html>  --}}
+{{--  <html>  --}}
 
+{{--  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>  --}}
 
-    {{--  <div class="article-clean">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-                    <div class="intro">
-                        <h1 class="text-center">Your Wonderful Article Title</h1>
-                        <p class="text-center"><span class="by">by</span> <a href="#">Author Name</a><span class="date">Sept 8th, 2016 </span></p><img class="img-fluid" src="assets/img/desk.jpg"></div>
-                    <div class="text">
-                        <p>Sed lobortis mi. Suspendisse vel placerat ligula. <span style="text-decoration: underline;">Vivamus</span> ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in
-                            justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac lacus. <strong>Ut vehicula rhoncus</strong> elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit <em>pulvinar dict</em> vel in justo. Vestibulum
-                            ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-                        <h2>Aliquam In Arcu </h2>
-                        <p>Suspendisse vel placerat ligula. Vivamus ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                            posuere cubilia Curae.</p>
-                        <figure><img class="figure-img" src="assets/img/beach.jpg">
-                            <figcaption>Caption</figcaption>
-                        </figure>
-                        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Suspendisse vel placerat ligula. Vivamus ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit
-                            pulvinar dictum vel in justo.</p>
+{{--  <body>  --}}
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Legacy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Careers</h3>
+                        <ul>
+                            <li><a href="#">Job openings</a></li>
+                            <li><a href="#">Employee success</a></li>
+                            <li><a href="#">Benefits</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">KKN ITERA © 2019</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>  --}}
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+{{--  </body>  --}}
+
+{{--  </html>  --}}
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
@@ -373,7 +407,7 @@ sc
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- AJAX CRUD operations -->
     <script type="text/javascript">
         // add surat domisili
