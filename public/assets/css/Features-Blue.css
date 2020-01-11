@@ -1,8 +1,8 @@
 .features-blue {
     color: #fff;
-    background: linear-gradient(#1b262c, #0f4c75);
-    background-color: #1b262c;
-    padding-bottom: 10px;
+    /* background: linear-gradient(135deg, #172a74, #21a9af); */
+    /* background-color: #184e8e; */
+    padding-bottom: 30px;
 }
 
 @media (max-width:767px) {
@@ -17,14 +17,14 @@
 
 .features-blue h2 {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     padding-top: 40px;
     color: inherit;
 }
 
 @media (max-width:767px) {
     .features-blue h2 {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         padding-top: 25px;
         font-size: 24px;
     }
@@ -33,12 +33,12 @@
 .features-blue .intro {
     font-size: 16px;
     max-width: 500px;
-    margin: 0 auto 50px;
+    margin: 0 auto 60px;
 }
 
 @media (max-width:767px) {
     .features-blue .intro {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 }
 
