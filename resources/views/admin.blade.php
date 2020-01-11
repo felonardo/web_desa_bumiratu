@@ -4,10 +4,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.jpg') }}">
+
+    <!-- CSFR token for ajax call -->
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <title>Table - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    
+    <!-- toastr notifications -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <style>
+        .hidden {
+            display: none !important;
+        }
+
+        .panel-heading {
+            padding: 0;
+        }
+        .panel-heading ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .panel-heading li {
+            float: left;
+            border-right:1px solid #bbb;
+            display: block;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .panel-heading li:last-child:hover {
+            background-color: #ccc;
+        }
+        .panel-heading li:last-child {
+            border-right: none;
+        }
+        .panel-heading li a:hover {
+            text-decoration: none;
+        }
+
+        .table.table-bordered tbody td {
+            vertical-align: baseline;
+        }
+        /* icheck checkboxes */
+        .iradio_flat-yellow {
+            background: url(https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/yellow.png) no-repeat;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -145,124 +193,66 @@
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+                        <p class="text-primary m-0 font-weight-bold">Daftar Surat</p>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6 text-nowrap">
-                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                    <label>Show&nbsp;
+                                        <select class="form-control form-control-sm custom-select custom-select-sm">
+                                            <option value="10" selected="">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        &nbsp;
+                                    </label>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                                <div class="text-md-right dataTables_filter" id="dataTable_filter">
+                                    <label>
+                                        <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search">
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                            <table class="table dataTable my-0" id="dataTable">
+                        </div> -->
+                        <!-- <div class="table-responsive table mt-2 panel-body" id="postTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table dataTable my-0 table-striped table-bordered table-hover" id="postTable" style="visibility: hidden;"> -->
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-hover" id="postTable">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th valign="middle">ID</th>
+                                        <th>NIK</th>
+                                        <th>Last updated</th>
+                                        <th>Actions</th>
                                     </tr>
+                                    {{ csrf_field() }}
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>33</td>
-                                        <td>2008/11/28</td>
-                                        <td>$162,700</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Angelica Ramos</td>
-                                        <td>Chief Executive Officer(CEO)</td>
-                                        <td>London</td>
-                                        <td>47</td>
-                                        <td>2009/10/09<br></td>
-                                        <td>$1,200,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar3.jpeg">Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12<br></td>
-                                        <td>$86,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar4.jpeg">Bradley Greer</td>
-                                        <td>Software Engineer</td>
-                                        <td>London</td>
-                                        <td>41</td>
-                                        <td>2012/10/13<br></td>
-                                        <td>$132,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar5.jpeg">Brenden Wagner</td>
-                                        <td>Software Engineer</td>
-                                        <td>San Francisco</td>
-                                        <td>28</td>
-                                        <td>2011/06/07<br></td>
-                                        <td>$206,850</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Brielle Williamson</td>
-                                        <td>Integration Specialist</td>
-                                        <td>New York</td>
-                                        <td>61</td>
-                                        <td>2012/12/02<br></td>
-                                        <td>$372,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Bruno Nash<br></td>
-                                        <td>Software Engineer</td>
-                                        <td>London</td>
-                                        <td>38</td>
-                                        <td>2011/05/03<br></td>
-                                        <td>$163,500</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar3.jpeg">Caesar Vance</td>
-                                        <td>Pre-Sales Support</td>
-                                        <td>New York</td>
-                                        <td>21</td>
-                                        <td>2011/12/12<br></td>
-                                        <td>$106,450</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar4.jpeg">Cara Stevens</td>
-                                        <td>Sales Assistant</td>
-                                        <td>New York</td>
-                                        <td>46</td>
-                                        <td>2011/12/06<br></td>
-                                        <td>$145,600</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar5.jpeg">Cedric Kelly</td>
-                                        <td>Senior JavaScript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29<br></td>
-                                        <td>$433,060</td>
-                                    </tr>
+                                    @foreach($posts as $post)
+                                        <tr class="item{{$post->id}}">
+                                            <td>{{$post->id}}</td>
+                                            <td>{{$post->nik}}</td>
+                                            <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->updated_at)->diffForHumans() }}</td>
+                                            <td>
+                                                <button class="show-modal btn btn-success" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
+                                                <span class="glyphicon glyphicon-eye-open"></span> Show</button>
+                                                <button class="edit-modal btn btn-info" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
+                                                <span class="glyphicon glyphicon-edit"></span> Edit</button>
+                                                <button class="delete-modal btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
+                                                <span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td><strong>Name</strong></td>
-                                        <td><strong>Position</strong></td>
-                                        <td><strong>Office</strong></td>
-                                        <td><strong>Age</strong></td>
-                                        <td><strong>Start date</strong></td>
-                                        <td><strong>Salary</strong></td>
-                                    </tr>
-                                </tfoot>
                             </table>
-                        </div>
-                        <div class="row">
+                        </div><!-- /.panel-body -->
+                        {{$posts->links()}}
+
+                        <!-- <div class="row">
                             <div class="col-md-6 align-self-center">
                                 <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
                             </div>
@@ -277,7 +267,7 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -288,10 +278,213 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    
+    <!-- Modal form to show a post -->
+    <div id="showModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id">ID:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="id_show" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik">NIK:</label>
+                            <div class="col-sm-auto">
+                                <input type="name" class="form-control" id="nik_show" disabled>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal form to edit a form -->
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id">ID:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="id_edit" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik">NIK:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="nik_edit" autofocus>
+                                <p class="errorNIK text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary edit" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-check'></span> Edit
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal form to delete a form -->
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Are you sure you want to delete the following post?</h3>
+                    <br />
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id">ID:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="id_delete" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik">NIK:</label>
+                            <div class="col-sm-auto">
+                                <input type="name" class="form-control" id="nik_delete" disabled>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger delete" data-dismiss="modal">
+                            <span id="" class='glyphicon glyphicon-trash'></span> Delete
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- toastr notifications -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- icheck checkboxes -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+
+    <!-- Delay table load until everything else is loaded -->
+    <script>
+        $(window).load(function(){
+            $('#postTable').removeAttr('style');
+        })
+    </script>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <!-- toastr notifications -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+    <!-- Delay table load until everything else is loaded -->
+    <script>
+        $(window).load(function(){
+            $('#postTable').removeAttr('style');
+        })
+    </script>
+
+    <!-- AJAX CRUD operations -->
+    <script type="text/javascript">
+        // Show a post
+        $(document).on('click', '.show-modal', function() {
+            $('.modal-title').text('Show');
+            $('#id_show').val($(this).data('id'));
+            $('#nik_show').val($(this).data('nik'));
+            $('#showModal').modal('show');
+        });
+
+
+        // Edit a post
+        $(document).on('click', '.edit-modal', function() {
+            $('.modal-title').text('Edit');
+            $('#id_edit').val($(this).data('id'));
+            $('#nik_edit').val($(this).data('nik'));
+            id = $('#id_edit').val();
+            $('#editModal').modal('show');
+        });
+        $('.modal-footer').on('click', '.edit', function() {
+            $.ajax({
+                type: 'PUT',
+                url: 'domisili/' + id,
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'id': $("#id_edit").val(),
+                    'nik': $('#nik_edit').val()
+                },
+                success: function(data) {
+                    $('.errorNIK').addClass('hidden');
+
+                    if ((data.errors)) {
+                        setTimeout(function () {
+                            $('#editModal').modal('show');
+                            toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
+                        }, 500);
+
+                        if (data.errors.nik) {
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text(data.errors.nik);
+                        }
+                    } else {
+                        toastr.success('Successfully updated Post!', 'Success Alert', {timeOut: 5000});
+                        $('.item' + data.id).replaceWith("<tr class='item" + data.id + "'><td>" + data.id + "</td><td>" + data.nik + "</td><td>Right now</td><td><button class='show-modal btn btn-success' data-id='" + data.id + "' data-nik='" + data.nik + "'><span class='glyphicon glyphicon-eye-open'></span> Show</button> <button class='edit-modal btn btn-info' data-id='" + data.id + "' data-nik='" + data.nik + "'><span class='glyphicon glyphicon-edit'></span> Edit</button> <button class='delete-modal btn btn-danger' data-id='" + data.id + "' data-nik='" + data.nik + "'><span class='glyphicon glyphicon-trash'></span> Delete</button></td></tr>");
+                    }
+                }
+            });
+        });
+
+        // delete a post
+        $(document).on('click', '.delete-modal', function() {
+            $('.modal-title').text('Delete');
+            $('#id_delete').val($(this).data('id'));
+            $('#nik_delete').val($(this).data('nik'));
+            $('#deleteModal').modal('show');
+            id = $('#id_delete').val();
+        });
+        $('.modal-footer').on('click', '.delete', function() {
+            $.ajax({
+                type: 'DELETE',
+                url: 'domisili/' + id,
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                },
+                success: function(data) {
+                    toastr.success('Successfully deleted Post!', 'Success Alert', {timeOut: 5000});
+                    $('.item' + data['id']).remove();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

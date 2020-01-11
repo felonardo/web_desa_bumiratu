@@ -13,6 +13,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Post;
 
 // Route::get('/', function () {
 //     return view('index');
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/','HomeController');
 
 Route::resource('keramaian','KeramaianController');
+
+Route::resource('/domisili','DomisiliController');
 
 Route::get('/login', function () {
     return view('login');
@@ -38,9 +41,7 @@ Route::get('/suratketerangantidakmampu', function () {
     return view('form_skkm');
 });
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', function () {
-        return view('admin');
-    });
+    Route::resource('/home','AdminController');
 });
 Auth::routes();
 

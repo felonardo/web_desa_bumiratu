@@ -383,7 +383,7 @@ sc
         $('.modal-footer').on('click', '.add', function() {
             $.ajax({
                 type: 'POST',
-                url: '/',
+                url: 'domisili',
                 data: {
                     '_token': $('input[name=_token]').val(),
                     'nik': $('#nik_add').val()
