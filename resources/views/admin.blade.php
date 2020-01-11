@@ -51,10 +51,6 @@
         .table.table-bordered tbody td {
             vertical-align: baseline;
         }
-        /* icheck checkboxes */
-        .iradio_flat-yellow {
-            background: url(https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/yellow.png) no-repeat;
-        }
     </style>
 </head>
 
@@ -186,8 +182,9 @@
                     </div>
                     </li>
                     </ul>
+                </nav>
             </div>  --}}
-            </nav>
+            
             <div class="container-fluid">
                 <br>
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
@@ -387,32 +384,12 @@
         </div>
     </div>
 
-    <!-- toastr notifications -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-    <!-- icheck checkboxes -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-
-    <!-- Delay table load until everything else is loaded -->
-    <script>
-        $(window).load(function(){
-            $('#postTable').removeAttr('style');
-        })
-    </script>
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
     <!-- toastr notifications -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    
-    <!-- Delay table load until everything else is loaded -->
-    <script>
-        $(window).load(function(){
-            $('#postTable').removeAttr('style');
-        })
-    </script>
 
     <!-- AJAX CRUD operations -->
     <script type="text/javascript">

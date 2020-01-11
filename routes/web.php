@@ -14,6 +14,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Post;
+use App\keramaian;
 
 // Route::get('/', function () {
 //     return view('index');
@@ -21,7 +22,7 @@ use App\Post;
 
 Route::resource('/','HomeController');
 
-Route::resource('keramaian','KeramaianController');
+Route::resource('/keramaian','KeramaianController');
 
 Route::resource('/domisili','DomisiliController');
 
