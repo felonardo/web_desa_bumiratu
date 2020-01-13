@@ -114,9 +114,9 @@ class DomisiliController extends Controller
         return response()->json($post);
     }
 
-    public function cetak()
+    public function cetak($id)
     {
-        $posts =  Post::all();
+        $posts =  $post = Post::findOrFail($id);
 
         $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $posts]);
         return $pdf->setPaper('a4')->stream();

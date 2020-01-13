@@ -241,7 +241,7 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}"href="/home/cetak">
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetak', ['id' => $post->id])}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>

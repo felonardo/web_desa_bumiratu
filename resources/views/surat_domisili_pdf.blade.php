@@ -1,5 +1,3 @@
-@foreach($posts as $post)
-
 <h3 style="text-align: center;"><strong>PEMERINTAHAN KABUPATEN PESISIR BARAT</strong><br /><strong>KECAMATAN NGAMBUR</strong><br /><strong>PEKON BUMI RATU</strong></h3>
 <p style="text-align: center;"><em>&nbsp;</em><em>Alamat : </em><em>Jln Proklamator No. 07&nbsp; Pekon Bumi <u>Ratu</u>&nbsp; Ke</em><em>camatan </em><em>&nbsp;Ngambur Kode Post 34891</em></p>
 <hr />
@@ -15,7 +13,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -24,7 +22,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -33,7 +31,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -42,7 +40,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -51,7 +49,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -60,7 +58,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
         <tr>
@@ -69,7 +67,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px; margin-top: 0px">
-                {{$post->nik}}
+                {{$posts->nik}}
             </td>
         </tr>
     </tbody>
@@ -82,7 +80,7 @@
 <p style="text-align: left; padding-left: 120px;">Agama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_agama}}</p>
 <p style="text-align: left; padding-left: 120px;">Pekerjaan&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_pekerjaan}}</p>
 <p style="text-align: left; padding-left: 120px; ">Alamat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_alamat}}</p>  --}}
-<p style="text-align: justify; ">Bahwa yang namanya tersebut di atas adalah benar Bertempat tinggal/Berdomisili di Pemangku {{$post->nik}} Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir Barat Propinsi Lampung.</p>
+<p style="text-align: justify; ">Bahwa yang namanya tersebut di atas adalah benar Bertempat tinggal/Berdomisili di Pemangku {{$posts->nik}} Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir Barat Propinsi Lampung.</p>
 <p></p>
 <p style="text-align: justify;">Demikian surat keterangan ini dibuat dengan sebenar-benarnya untuk dipergunakan seperlunya.</p>
 <table style="margin-left: auto; margin-right: auto;">
@@ -101,4 +99,3 @@
 </table>
 <br>
 <br>
-@endforeach
