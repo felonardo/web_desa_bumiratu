@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Post;
+use App\table_warga;
 use App\Warga;
 // use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -123,9 +124,19 @@ class DomisiliController extends Controller
 
     public function cetak($id)
     {
-        $posts = Post::findOrFail($id);
+        $post = Post::findOrFail($id);
 
-        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $posts]);
+        // $nik = $post->nik;
+
+        // $post = Post::findOrFail($id);
+        // // $post->nik = $request->nik;
+
+        // $table_warga = DB::table('table_warga')
+        //     ->where('nik', 'like', "%" . $post->nik . "%");
+        // ->paginate();
+        $table_warga = table_warga::where('nik', '=', $post->nik)->firstOrFail();
+
+        $pdf = PDF::loadview('surat_domisili_pdf', ['table_warga' => $table_warga]);
         return $pdf->setPaper('a4')->stream();
     }
 }
