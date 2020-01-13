@@ -312,7 +312,7 @@
             <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#surat">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#surat">Surat Izin Kegiatan</a></div>
             <br>
             <div class="buttons"><a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a><a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
-            <br>
+            {{--  <br>  --}}
             <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Penghasilan Orang Tua</a></div>
             </div><br><br><br>
         </div>
@@ -321,7 +321,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
-sc
+
 <script src="../package/js/swiper.min.js"></script>
 
 <script>

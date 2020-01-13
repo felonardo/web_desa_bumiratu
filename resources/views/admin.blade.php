@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    
+
     <!-- toastr notifications -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
@@ -74,7 +74,7 @@
                 <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-primary border-warning shadow-sm action-button "type="button">Surat Keterangan Tidak Mampu</button>
                 <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-warning shadow-sm action-button "type="button">Surat Keterangan PBB</button>
                 <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " type="button">Edit Database Warga</button>
-                
+
             </div>
         </nav>
         {{--  <div class="d-flex flex-column" id="content-wrapper">
@@ -184,7 +184,7 @@
                     </ul>
                 </nav>
             </div>  --}}
-            
+
             <div class="container-fluid">
                 <br>
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
@@ -239,8 +239,10 @@
                                                 <span class="glyphicon glyphicon-eye-open"></span> Show</button>
                                                 <button class="edit-modal btn btn-info" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
-                                                <button class="delete-modal btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
+                                                <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}"href="/home/cetak">
+                                                <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -275,7 +277,7 @@
             </div>
         </footer> -->
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    
+
     <!-- Modal form to show a post -->
     <div id="showModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

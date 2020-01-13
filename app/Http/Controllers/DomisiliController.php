@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Post;
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use View;
 
 class DomisiliController extends Controller
@@ -110,5 +112,13 @@ class DomisiliController extends Controller
         $post->delete();
 
         return response()->json($post);
+    }
+
+    public function cetak()
+    {
+        $posts =  Post::all();
+
+        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $posts]);
+        return $pdf->setPaper('a4')->stream();
     }
 }
