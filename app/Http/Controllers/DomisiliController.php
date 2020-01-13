@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Post;
+use App\Warga;
 // use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
@@ -46,14 +47,19 @@ class DomisiliController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        if ($validator->fails()) {
+        if (Warga::where('nik', $request->nik)->exists()) {
+            $validator = Validator::make($request->all(), $this->rules);
+            if ($validator->fails()) {
+                return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+            } else {
+                $post = new Post();
+                $post->nik = $request->nik;
+                $post->save();
+                return response()->json($post);
+            }
+        }else{
+            $validator = Validator::make($request->all(), $this->rules);
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-        } else {
-            $post = new Post();
-            $post->nik = $request->nik;
-            $post->save();
-            return response()->json($post);
         }
     }
 
@@ -117,16 +123,9 @@ class DomisiliController extends Controller
 
     public function cetak($id)
     {
-        $posts =  $post = Post::findOrFail($id);
+        $posts = Post::findOrFail($id);
 
-        $post = Post::findOrFail($id);
-        // $post->nik = $request->nik;
-
-        $warga = DB::table('table_warga')
-            ->where('nik', 'like', "%" . $post->nik . "%")
-            ->paginate();
-
-        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $warga]);
+        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $posts]);
         return $pdf->setPaper('a4')->stream();
     }
 }
