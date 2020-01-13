@@ -13,7 +13,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nama}}
             </td>
         </tr>
         <tr>
@@ -22,7 +22,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
         <tr>
@@ -31,7 +31,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
         <tr>
@@ -40,7 +40,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
         <tr>
@@ -49,7 +49,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px;">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
         <tr>
@@ -67,7 +67,7 @@
             </td>
             <td style="padding-left: 10px;">:</td>
             <td style="padding-left: 30px; margin-top: 0px">
-                {{$posts->nik}}
+                {{$table_warga->nik}}
             </td>
         </tr>
     </tbody>
@@ -80,7 +80,7 @@
 <p style="text-align: left; padding-left: 120px;">Agama&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_agama}}</p>
 <p style="text-align: left; padding-left: 120px;">Pekerjaan&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_pekerjaan}}</p>
 <p style="text-align: left; padding-left: 120px; ">Alamat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{$post->warga_alamat}}</p>  --}}
-<p style="text-align: justify; ">Bahwa yang namanya tersebut di atas adalah benar Bertempat tinggal/Berdomisili di Pemangku {{$posts->nik}} Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir Barat Propinsi Lampung.</p>
+<p style="text-align: justify; ">Bahwa yang namanya tersebut di atas adalah benar Bertempat tinggal/Berdomisili di Pemangku {{$table_warga->nik}} Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir Barat Propinsi Lampung.</p>
 <p></p>
 <p style="text-align: justify;">Demikian surat keterangan ini dibuat dengan sebenar-benarnya untuk dipergunakan seperlunya.</p>
 <table style="margin-left: auto; margin-right: auto;">
