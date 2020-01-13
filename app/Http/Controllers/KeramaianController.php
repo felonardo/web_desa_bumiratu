@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Keramaian;
+use App\Warga;
 use View;
 
 class KeramaianController extends Controller
@@ -28,16 +29,21 @@ class KeramaianController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        if ($validator->fails()) {
+        if (Warga::where('nik', $request->nik)->exists()) {
+            $validator = Validator::make($request->all(), $this->rules);
+            if ($validator->fails()) {
+                return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+            } else {
+                $keramaian = new Keramaian();
+                $keramaian->nik = $request->nik;
+                $keramaian->hiburan = $request->hiburan;
+                $keramaian->tanggal = $request->tanggal;
+                $keramaian->save();
+                return response()->json($keramaian);
+            }
+        }else{
+            $validator = Validator::make($request->all(), $this->rules);
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-        } else {
-            $keramaian = new Keramaian();
-            $keramaian->nik = $request->nik;
-            $keramaian->hiburan = $request->hiburan;
-            $keramaian->tanggal = $request->tanggal;
-            $keramaian->save();
-            return response()->json($keramaian);
         }
     }
 }
