@@ -8,6 +8,7 @@ use Response;
 use App\Post;
 // use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\DB;
 use View;
 
 class DomisiliController extends Controller
@@ -114,11 +115,18 @@ class DomisiliController extends Controller
         return response()->json($post);
     }
 
-    public function cetak()
+    public function cetak($id)
     {
-        $posts =  Post::all();
+        // $posts =  Post::all();
 
-        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $posts]);
+        $post = Post::findOrFail($id);
+        // $post->nik = $request->nik;
+
+        $warga = DB::table('table_warga')
+            ->where('nik', 'like', "%" . $post->nik . "%")
+            ->paginate();
+
+        $pdf = PDF::loadview('surat_domisili_pdf', ['posts' => $warga]);
         return $pdf->setPaper('a4')->stream();
     }
 }

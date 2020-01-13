@@ -69,11 +69,11 @@
 
                 {{--  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>  --}}
 
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-primary border-warning shadow-sm action-button "  type="button">Surat Izin Domisili</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-warning shadow-sm action-button " type="button">Surat Izin Kegiatan</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-primary border-warning shadow-sm action-button "type="button">Surat Keterangan Tidak Mampu</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-success border-warning shadow-sm action-button "type="button">Surat Keterangan PBB</button>
-                <button class="btn btn-outline-light btn-block btn-lg text-center rounded bg-danger border-danger shadow-sm action-button " type="button">Edit Database Warga</button>
+                <button class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "  type="button">Surat Izin Domisili</button>
+                <button class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button">Surat Izin Kegiatan</button>
+                <button class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button">Surat Keterangan Tidak Mampu</button>
+                <button class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button">Surat Keterangan PBB</button>
+                <button class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</button>
 
             </div>
         </nav>
@@ -241,7 +241,13 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}"href="/home/cetak">
+
+                                                {{--  <form action="/warga/cetak" method="GET">
+		<input type="text" name="cari" placeholder="Masukkan NIK .." value="{{ old('cari') }}">
+		<input type="submit" value="CETAK">
+    </form>  --}}
+
+                                                <a class="btn btn-danger" href="/home/cetak/" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>
@@ -386,6 +392,8 @@
         </div>
     </div>
 
+
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
@@ -463,6 +471,8 @@
                 }
             });
         });
+        //cetak
+
     </script>
 </body>
 
