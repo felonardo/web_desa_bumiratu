@@ -117,7 +117,7 @@ class DomisiliController extends Controller
 
     public function cetak($id)
     {
-        // $posts =  Post::all();
+        $posts =  $post = Post::findOrFail($id);
 
         $post = Post::findOrFail($id);
         // $post->nik = $request->nik;

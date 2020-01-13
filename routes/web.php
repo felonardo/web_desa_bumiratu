@@ -42,7 +42,10 @@ Route::get('/suratketerangantidakmampu', function () {
     return view('form_skkm');
 });
 
-Route::get('/home/cetak', 'DomisiliController@cetak');
+// Route::get('/home/cetak', 'DomisiliController@cetak');
+Route::get('/home/cetak/{id}',
+        ['as'=> 'cetak', 'uses'=>'DomisiliController@cetak']
+);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/home', 'AdminController');

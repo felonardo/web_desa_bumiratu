@@ -241,13 +241,7 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-
-                                                {{--  <form action="/warga/cetak" method="GET">
-		<input type="text" name="cari" placeholder="Masukkan NIK .." value="{{ old('cari') }}">
-		<input type="submit" value="CETAK">
-    </form>  --}}
-
-                                                <a class="btn btn-danger" href="/home/cetak/" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetak', ['id' => $post->id])}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>
