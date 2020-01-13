@@ -20,11 +20,11 @@ use App\keramaian;
 //     return view('index');
 // });
 
-Route::resource('/','HomeController');
+Route::resource('/', 'HomeController');
 
-Route::resource('/keramaian','KeramaianController');
+Route::resource('/keramaian', 'KeramaianController');
 
-Route::resource('/domisili','DomisiliController');
+Route::resource('/domisili', 'DomisiliController');
 
 Route::get('/login', function () {
     return view('login');
@@ -41,8 +41,11 @@ Route::get('/suratizindomisili', function () {
 Route::get('/suratketerangantidakmampu', function () {
     return view('form_skkm');
 });
+
+Route::get('/home/cetak', 'DomisiliController@cetak');
+
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('/home','AdminController');
+    Route::resource('/home', 'AdminController');
 });
 Auth::routes();
 

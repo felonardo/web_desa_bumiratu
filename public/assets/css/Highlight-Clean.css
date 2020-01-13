@@ -54,33 +54,41 @@
 
 .highlight-clean .buttons .btn-primary {
     background-color: #f0ad4e;
-
+    width: 40%;
     color: #fff;
 }
 
 .highlight-clean .buttons .btn-success {
     background-color: #3da4ab;
+    width: 40%;
     color: #fff;
 }
 
 .highlight-clean .buttons .btn-warning {
     background-color: #055ada;
+    width: 40%;
     color: #fff;
 }
 
 .highlight-clean .buttons .btn-danger {
     background-color: #5cb85c;
+    width: 40%;
     color: #fff;
 }
 
 .highlight-clean .buttons .btn-info {
     background-color: #5bc0de;
+    /* padding-left: 70px;
+    padding-right: 70px;
+    */
+    width: 40%;
     color: #fff;
 }
 
 .highlight-clean .buttons .btn-dark {
     background-color:
         #d9534f;
+    width: 40%;
     color: #fff;
 }
 
