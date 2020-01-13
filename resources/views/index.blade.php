@@ -309,7 +309,7 @@
             </div><br>
 
     <div class="col text-center">
-            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#">Surat Izin Kegiatan</a></div>
+            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#surat">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#surat">Surat Izin Kegiatan</a></div>
             <br>
             <div class="buttons"><a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a><a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
             <br>
