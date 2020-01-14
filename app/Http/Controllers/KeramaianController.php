@@ -14,7 +14,8 @@ class KeramaianController extends Controller
     protected $rules =
     [
         'nik' => 'required|min:16|max:16|regex:/^[0-9 ,.\'-]+$/i',
-        'hiburan' => 'required|min:4|max:20|regex:/^[a-z ,.\'-]+$/i'
+        'hiburan' => 'required|min:4|max:20|regex:/^[a-z ,.\'-]+$/i',
+        'tanggal' => 'required|min:10|max:10|regex:/^[0-9 ,.\'-]+$/i'
     ];
 
     /**
@@ -43,7 +44,7 @@ class KeramaianController extends Controller
             }
         }else{
             $validator = Validator::make($request->all(), $this->rules);
-            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+            return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
 }

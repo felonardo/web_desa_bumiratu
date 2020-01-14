@@ -433,7 +433,10 @@
 
                         if (data.errors.nik) {
                             $('.errorNIK').removeClass('hidden');
-                            $('.errorNIK').text(data.errors.nik);
+                            $('.errorNIK').text("NIK harus di isi dengan 16 digit angka!");
+                        }else if(data.false){
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text("NIK Anda Salah!");
                         }
                     } else {
                         toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});
@@ -469,17 +472,20 @@
 
                         if (data.errors.nik) {
                             $('.errorNIK').removeClass('hidden');
-                            $('.errorNIK').text(data.errors.nik);
+                            $('.errorNIK').text("NIK harus di isi dengan 16 digit angka!");
+                        }else if(data.false){
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text("NIK Anda Salah!");
                         }
 
                         if (data.errors.hiburan) {
                             $('.errorHiburan').removeClass('hidden');
-                            $('.errorHiburan').text(data.errors.hiburan);
+                            $('.errorHiburan').text("Hiburan harus di isi dengan minimal 4 huruf dan maksimal 20 huruf!");
                         }
 
                         if (data.errors.tanggal) {
                             $('.errorTanggal').removeClass('hidden');
-                            $('.errorTanggal').text(data.errors.tanggal);
+                            $('.errorTanggal').text("Tanggal tidak boleh kosong!");
                         }
                     } else {
                         toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});

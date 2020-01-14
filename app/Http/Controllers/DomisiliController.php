@@ -60,7 +60,7 @@ class DomisiliController extends Controller
             }
         }else{
             $validator = Validator::make($request->all(), $this->rules);
-            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+            return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
 
