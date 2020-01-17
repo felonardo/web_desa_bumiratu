@@ -3,7 +3,7 @@
 
 <h3 style="text-align: center;"><strong>PEMERINTAHAN KABUPATEN PESISIR BARAT</strong><br /><strong>KECAMATAN NGAMBUR</strong><br /><strong>PEKON BUMI RATU</strong></h3>
 <p style="text-align: center;"><em>&nbsp;</em><em>Alamat : </em><em>Jln Proklamator No. 07&nbsp; Pekon Bumi <u>Ratu</u>&nbsp; Ke</em><em>camatan </em><em>&nbsp;Ngambur Kode Post 34891</em></p>
-<hr />
+<hr style="margin-top: -15px;"/>
 <p style="text-align: center;"><strong><u>SURAT KETERANGAN DOMISILI</u></strong></p>
 <p style="text-align: center;">Nomor : 140 /........../ SKD / XII/ 2019</p>
 <p style="text-align: left;">Yang bertanda tangan di bawah ini, Peratin Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir &nbsp;Barat menerangkan dengan sebenar-benarnya bahwa :</p>

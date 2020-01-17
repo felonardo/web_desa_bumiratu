@@ -71,8 +71,8 @@
 
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "  type="button" href="/home">Surat Izin Domisili</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaianAdmin">Surat Izin Keramaian</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampuAdmin">Surat Keterangan Tidak Mampu</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolahAdmin">Surat Keterangan Tidak Mampu Sekolah</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/usahaAdmin">Surat Keterangan Usaha</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</a>
 

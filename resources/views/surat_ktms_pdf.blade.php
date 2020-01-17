@@ -14,6 +14,7 @@
         </tr>
     </tbody>
 </table>
+<hr style="margin-top: -15px;"/>
 <p style="text-align: center;"><strong><u>SURAT KETERANGAN PENGHASILAN ORANG TUA</u></strong></p>
 {{-- <p style="text-align: center;">Nomor : 140 /........../ SKTM-BR / X/ 2019</p> --}}
 <p style="text-align: left; justify;">Yang bertanda tangan di bawah ini,</p>
