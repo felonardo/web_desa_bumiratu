@@ -28,6 +28,8 @@ Route::resource('/domisili', 'DomisiliController');
 
 Route::resource('/sktm', 'SKTMController');
 
+Route::resource('/usaha', 'UsahaController');
+
 Route::get('/login', function () {
     return view('login');
 });
