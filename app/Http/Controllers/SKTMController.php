@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Response;
-use App\SKTM    ;
+use App\SKTM;
 use App\table_warga;
 use App\Warga;
 use View;
@@ -41,12 +41,12 @@ class SKTMController extends Controller
                 $sktm->save();
                 return response()->json($sktm);
             }
-        }else{
+        } else {
             $validator = Validator::make($request->all(), $this->rules);
             return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
-     public function cetakkeramaian($id)
+    public function cetaksktm($id)
     {
         $sktm = SKTM::findOrFail($id);
 
@@ -60,7 +60,7 @@ class SKTMController extends Controller
         // ->paginate();
         $table_warga = table_warga::where('nik', '=', $sktm->nik)->firstOrFail();
 
-        $pdf = PDF::loadview('surat_ktm_pdf', ['table_warga' => $table_warga,'surat_sktm' => $sktm]);
-        return $pdf->setPaper('legal')->stream();
+        $pdf = PDF::loadview('surat_ktm_pdf', ['table_warga' => $table_warga, 'surat_sktm' => $sktm]);
+        return $pdf->setPaper('a4')->stream();
     }
 }

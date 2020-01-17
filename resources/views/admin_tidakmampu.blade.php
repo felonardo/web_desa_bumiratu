@@ -70,10 +70,10 @@
                 {{--  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>  --}}
 
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "  type="button" href="/home">Surat Izin Domisili</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaian">Surat Izin Keramaian</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaianAdmin">Surat Izin Keramaian</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampu">Surat Keterangan Tidak Mampu</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button">Surat Keterangan PBB</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampuAdmin">Surat Keterangan Tidak Mampu</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/usahaAdmin">Surat Keterangan Usaha</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</a>
 
             </div>
@@ -230,7 +230,7 @@
                                     {{ csrf_field() }}
                                 </thead>
                                 <tbody>
-                                    @foreach($posts as $post)
+                                    @foreach($sktm as $post)
                                         <tr class="item{{$post->id}}">
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->nik}}</td>
@@ -242,7 +242,7 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetak', ['id' => $post->id])}}">
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetaksktm', ['id' => $post->id])}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>
@@ -250,7 +250,7 @@
                                 </tbody>
                             </table>
                         </div><!-- /.panel-body -->
-                        {{$posts->links()}}
+                        {{$sktm->links()}}
 
                         <!-- <div class="row">
                             <div class="col-md-6 align-self-center">

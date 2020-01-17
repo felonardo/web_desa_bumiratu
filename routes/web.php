@@ -43,6 +43,10 @@ Route::get(
     '/home/cetakdomisili/{id}',
     ['as' => 'cetakdomisili', 'uses' => 'DomisiliController@cetakdomisili']
 );
+Route::get(
+    '/tidakmampuAdmin/cetaksktm/{id}',
+    ['as' => 'cetaksktm', 'uses' => 'SKTMController@cetaksktm']
+);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/home', 'AdminController');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Response;
-use App\Post;
+use App\SKTM;
 use View;
 
 class AdminTidakMampuController extends Controller
@@ -22,9 +22,9 @@ class AdminTidakMampuController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(6);
+        $sktm = SKTM::paginate(6);
 
-        return view('admin_tidakmampu', ['posts' => $posts]);
+        return view('admin_tidakmampu', ['sktm' => $sktm]);
     }
 
     /**
@@ -49,11 +49,11 @@ class AdminTidakMampuController extends Controller
         if ($validator->fails()) {
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         } else {
-            $post = new Post();
-            $post->title = $request->title;
-            $post->content = $request->content;
-            $post->save();
-            return response()->json($post);
+            $sktm = new SKTM();
+            $sktm->title = $request->title;
+            $sktm->content = $request->content;
+            $sktm->save();
+            return response()->json($sktm);
         }
     }
 
@@ -65,9 +65,9 @@ class AdminTidakMampuController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $sktm = SKTM::findOrFail($id);
 
-        return view('post.show', ['post' => $post]);
+        return view('sktm.show', ['sktm' => $sktm]);
     }
 
     /**
@@ -94,11 +94,11 @@ class AdminTidakMampuController extends Controller
         if ($validator->fails()) {
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         } else {
-            $post = Post::findOrFail($id);
-            $post->title = $request->title;
-            $post->content = $request->content;
-            $post->save();
-            return response()->json($post);
+            $sktm = SKTM::findOrFail($id);
+            $sktm->title = $request->title;
+            $sktm->content = $request->content;
+            $sktm->save();
+            return response()->json($sktm);
         }
     }
 
@@ -110,9 +110,9 @@ class AdminTidakMampuController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $post->delete();
+        $sktm = SKTM::findOrFail($id);
+        $sktm->delete();
 
-        return response()->json($post);
+        return response()->json($sktm);
     }
 }
