@@ -10,6 +10,9 @@ use App\table_warga;
 use App\Warga;
 use View;
 
+
+use Barryvdh\DomPDF\Facade as PDF;
+
 class UsahaController extends Controller
 {
     protected $rules =
@@ -47,14 +50,14 @@ class UsahaController extends Controller
                 $usaha->save();
                 return response()->json($usaha);
             }
-        }else{
+        } else {
             $validator = Validator::make($request->all(), $this->rules);
             return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
-     public function cetakkeramaian($id)
+    public function cetakusaha($id)
     {
-        $usaha = SKTM::findOrFail($id);
+        $usaha = Usaha::findOrFail($id);
 
         // $nik = $post->nik;
 
@@ -66,7 +69,7 @@ class UsahaController extends Controller
         // ->paginate();
         $table_warga = table_warga::where('nik', '=', $usaha->nik)->firstOrFail();
 
-        $pdf = PDF::loadview('surat_ktm_pdf', ['table_warga' => $table_warga,'surat_sktm' => $usaha]);
+        $pdf = PDF::loadview('surat_ku_pdf', ['table_warga' => $table_warga, 'surat_usaha' => $usaha]);
         return $pdf->setPaper('legal')->stream();
     }
 }

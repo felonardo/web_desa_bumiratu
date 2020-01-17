@@ -71,8 +71,8 @@
 
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "  type="button" href="/home">Surat Izin Domisili</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaianAdmin">Surat Izin Keramaian</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampuAdmin">Surat Keterangan Tidak Mampu</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/usahaAdmin">Surat Keterangan Usaha</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</a>
 
@@ -191,7 +191,7 @@
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Keterangan Tidak Mampu</p>
+                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Usaha</p>
                     </div>
                     <div class="card-body">
                         <!-- <div class="row">
@@ -230,7 +230,7 @@
                                     {{ csrf_field() }}
                                 </thead>
                                 <tbody>
-                                    @foreach($sktm as $post)
+                                    @foreach($usaha as $post)
                                         <tr class="item{{$post->id}}">
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->nik}}</td>
@@ -250,7 +250,7 @@
                                 </tbody>
                             </table>
                         </div><!-- /.panel-body -->
-                        {{$sktm->links()}}
+                        {{$usaha->links()}}
 
                         <!-- <div class="row">
                             <div class="col-md-6 align-self-center">
