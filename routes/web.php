@@ -30,6 +30,8 @@ Route::resource('/sktm', 'SKTMController');
 
 Route::resource('/usaha', 'UsahaController');
 
+Route::resource('/sktmSekolah', 'SKTMSekolahController');
+
 Route::get('/login', function () {
     return view('login');
 });
