@@ -278,6 +278,38 @@
         </div>
     </div>
 
+     <!-- Modal form to add a surat sktm sekolah-->
+     <div id="addModal5" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <!-- <h4 class="modal-title"></h4> -->
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nik5">NIK:</label>
+                            <div class="col-sm-auto">
+                                <input type="number" class="form-control" id="nik5_add" autofocus>
+                                <small>Min: 16, Max: 16, Hanya Angka</small>
+                                <p class="errorNIK text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success add5" data-dismiss="modal">
+                            <span id="" class='glyphicon glyphicon-check'></span> Add
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     {{--  <div>  --}}
 
@@ -470,7 +502,7 @@
                                 <a class="btn btn-danger add-modal4" type="button" href="#surat">Surat Keterangan
                                     Usaha</a></div>
                             {{--  <br>  --}}
-                            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak
+                            <div class="buttons"><a class="btn btn-dark add-modal5" role="button" href="#surat">Surat Keterangan Tidak
                                     Mampu Sekolah</a><a class="btn btn-info add-modal3" type="button"
                                     href="#surat">Surat Keterangan Tidak Mampu</a></div>
                         </div><br><br><br>
@@ -790,6 +822,45 @@
                             $('.errorLamaPinjam').text(
                                 "Lama peminjaman harus di isi dengan 3 angka! (dalam hitungan bulan)!"
                                 );
+                        }
+                    } else {
+                        toastr.success('Successfully added Post!', 'Success Alert', {
+                            timeOut: 5000
+                        });
+                    }
+                },
+            });
+        });
+
+        // add surat usaha
+        $(document).on('click', '.add-modal5', function () {
+            $('#addModal5').modal('show');
+        });
+        $('.modal-footer').on('click', '.add5', function () {
+            $.ajax({
+                type: 'POST',
+                url: 'sktmSekolah',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'nik': $('#nik5_add').val()
+                },
+                success: function (data) {
+                    $('.errorNIK').addClass('hidden');
+
+                    if ((data.errors)) {
+                        setTimeout(function () {
+                            $('#addModal5').modal('show');
+                            toastr.error('Validation error!', 'Error Alert', {
+                                timeOut: 5000
+                            });
+                        }, 500);
+
+                        if (data.errors.nik) {
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text("NIK harus di isi dengan 16 digit angka!");
+                        } else if (data.false) {
+                            $('.errorNIK').removeClass('hidden');
+                            $('.errorNIK').text("NIK Anda Salah!");
                         }
                     } else {
                         toastr.success('Successfully added Post!', 'Success Alert', {
