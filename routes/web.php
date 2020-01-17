@@ -26,6 +26,8 @@ Route::resource('/keramaian', 'KeramaianController');
 
 Route::resource('/domisili', 'DomisiliController');
 
+Route::resource('/sktm', 'SKTMController');
+
 Route::get('/login', function () {
     return view('login');
 });

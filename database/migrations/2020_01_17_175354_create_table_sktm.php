@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateTableSktm extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('surat_domisili', function(Blueprint $table) {
+        Schema::create('surat_sktm', function(Blueprint $table) {
             $table->increments('id');   
             $table->string('nik');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('demo_posts');
+        Schema::dropIfExists('table_sktm');
     }
 }
