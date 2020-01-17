@@ -52,6 +52,10 @@ Route::get(
     ['as' => 'cetaksktm', 'uses' => 'SKTMController@cetaksktm']
 );
 Route::get(
+    '/tidakmampuAdmin/cetaksktms/{id}',
+    ['as' => 'cetaksktms', 'uses' => 'SKTMSekolahController@cetaksktms']
+);
+Route::get(
     '/usahaAdmin/cetakusaha/{id}',
     ['as' => 'cetakusaha', 'uses' => 'UsahaController@cetakusaha']
 );
@@ -60,6 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/home', 'AdminController');
     Route::resource('/keramaianAdmin', 'AdminKeramaianController');
     Route::resource('/tidakmampuAdmin', 'AdminTidakMampuController');
+    Route::resource('/tidakmampusekolahAdmin', 'AdminTidakMampuSekolahController');
     Route::resource('/usahaAdmin', 'AdminUsahaController');
 });
 Auth::routes();

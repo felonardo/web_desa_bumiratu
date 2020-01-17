@@ -46,7 +46,7 @@ class SKTMSekolahController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
-    public function cetaksktm($id)
+    public function cetaksktms($id)
     {
         $sktmSekolah = SKTMSekolah::findOrFail($id);
 
@@ -60,7 +60,7 @@ class SKTMSekolahController extends Controller
         // ->paginate();
         $table_warga = table_warga::where('nik', '=', $sktmSekolah->nik)->firstOrFail();
 
-        $pdf = PDF::loadview('surat_ktm_pdf', ['table_warga' => $table_warga, 'surat_sktmsekolah' => $sktmSekolah]);
-        return $pdf->setPaper('a4')->stream();
+        $pdf = PDF::loadview('surat_ktms_pdf', ['table_warga' => $table_warga, 'surat_ktms' => $sktmSekolah]);
+        return $pdf->setPaper('legal')->stream();
     }
 }
