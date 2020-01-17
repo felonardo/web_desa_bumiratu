@@ -318,11 +318,11 @@
                 {{--  <a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a>  --}}
                 <a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
             {{--  <br>  --}}
-            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu Sekolah</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Tidak
-            
-            
-            
-            
+            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu Sekolah</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Tidak Mampu
+
+
+
+
             </a></div>
             </div><br><br><br>
         </div>
