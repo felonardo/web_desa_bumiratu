@@ -16,8 +16,10 @@ class KeramaianController extends Controller
     protected $rules =
     [
         'nik' => 'required|min:16|max:16|regex:/^[0-9 ,.\'-]+$/i',
-        'hiburan' => 'required|min:4|max:20|regex:/^[a-z ,.\'-]+$/i',
-        'tanggal' => 'required|min:10|max:10|regex:/^[0-9 ,.\'-]+$/i'
+        'hiburan' => 'required|min:4|max:30|regex:/^[a-z ,.\'-]+$/i',
+        'tanggal' => 'required|min:10|max:10|regex:/^[0-9 ,.\'-]+$/i',
+        'pria' => 'required|min:4|max:30|regex:/^[a-z ,.\'-]+$/i',
+        'perempuan' => 'required|min:4|max:30|regex:/^[a-z ,.\'-]+$/i'
     ];
 
     /**
@@ -41,6 +43,8 @@ class KeramaianController extends Controller
                 $keramaian->nik = $request->nik;
                 $keramaian->hiburan = $request->hiburan;
                 $keramaian->tanggal = $request->tanggal;
+                $keramaian->pria = $request->pria;
+                $keramaian->perempuan = $request->perempuan;
                 $keramaian->save();
                 return response()->json($keramaian);
             }

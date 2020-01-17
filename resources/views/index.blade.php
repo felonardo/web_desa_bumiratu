@@ -126,7 +126,7 @@
                             <label class="control-label col-sm-2" for="hiburan">Hiburan:</label>
                             <div class="col-sm-auto">
                                 <input type="text" class="form-control" id="hiburan_add" autofocus>
-                                <small>Min: 4, Max: 20, Hanya Huruf</small>
+                                <small>Min: 4, Max: 30, Hanya Huruf</small>
                                 <p class="errorHiburan text-center alert alert-danger hidden"></p>
                             </div>
                         </div>
@@ -136,6 +136,22 @@
                                 <input type="date" class="form-control" id="tanggal_add" autofocus>
                                 <!-- <small>Min: 16, Max: 16, Hanya Angka</small> -->
                                 <p class="errorTanggal text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="margin-left: 12px;" for="pria">Nama Mempelai Pria:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="pria_add" autofocus>
+                                <small>Min: 4, Max: 30, Hanya Huruf</small>
+                                <p class="errorPria text-center alert alert-danger hidden"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="margin-left: 12px;" for="perempuan">Nama Mempelai Perempuan:</label>
+                            <div class="col-sm-auto">
+                                <input type="text" class="form-control" id="perempuan_add" autofocus>
+                                <small>Min: 4, Max: 30, Hanya Huruf</small>
+                                <p class="errorPerempuan text-center alert alert-danger hidden"></p>
                             </div>
                         </div>
                     </form>
@@ -471,12 +487,16 @@
                     '_token': $('input[name=_token]').val(),
                     'nik': $('#nik2_add').val(),
                     'hiburan' : $('#hiburan_add').val(),
-                    'tanggal' : $('#tanggal_add').val()
+                    'tanggal' : $('#tanggal_add').val(),
+                    'pria' : $('#pria_add').val(),
+                    'perempuan' : $('#perempuan_add').val()
                 },
                 success: function(data) {
                     $('.errorNIK').addClass('hidden');
                     $('.errorHiburan').addClass('hidden');
                     $('.errorTanggal').addClass('hidden');
+                    $('.errorPria').addClass('hidden');
+                    $('.errorPerempuan').addClass('hidden');
 
                     if ((data.errors)) {
                         setTimeout(function () {
@@ -494,12 +514,22 @@
 
                         if (data.errors.hiburan) {
                             $('.errorHiburan').removeClass('hidden');
-                            $('.errorHiburan').text("Hiburan harus di isi dengan minimal 4 huruf dan maksimal 20 huruf!");
+                            $('.errorHiburan').text("Hiburan harus di isi dengan minimal 4 huruf atau maksimal 30 huruf!");
                         }
 
                         if (data.errors.tanggal) {
                             $('.errorTanggal').removeClass('hidden');
                             $('.errorTanggal').text("Tanggal tidak boleh kosong!");
+                        }
+
+                        if (data.errors.pria) {
+                            $('.errorPria').removeClass('hidden');
+                            $('.errorPria').text("Nama harus di isi dengan minimal 4 huruf atau maksimal 30 huruf!");
+                        }
+
+                        if (data.errors.perempuan) {
+                            $('.errorPerempuan').removeClass('hidden');
+                            $('.errorPerempuan').text("Nama harus di isi dengan minimal 4 huruf atau maksimal 30 huruf!");
                         }
                     } else {
                         toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});

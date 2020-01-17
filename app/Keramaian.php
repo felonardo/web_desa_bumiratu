@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Keramaian extends Model
 {
     protected $table = 'surat_keramaian';
-    protected $fillable = ['nik', 'hiburan', 'tanggal'];
+    protected $fillable = ['nik', 'hiburan', 'tanggal', 'pria', 'perempuan'];
 
     public static function getExcerpt($str, $startPos = 0, $maxLength = 50)
     {

@@ -12,7 +12,48 @@
 <tr>
 <td style="padding-left: 50px;">Umur</td>
 <td style="padding-left: 10px;">:</td>
-<td style="padding-left: 30px;">{{$table_warga->ttl}}</td>
+<td style="padding-left: 30px;"><?php
+    function hitung_umur($tanggal_lahir) {
+        list($tempat,$hari,$bulan,$tahun) = explode(" ",$tanggal_lahir);
+        
+        if($bulan == "Januari"){
+            $bulan = 1;
+        }else if($bulan == "Februari"){
+            $bulan = 2;
+        }else if($bulan == "Maret"){
+            $bulan = 3;
+        }else if($bulan == "April"){
+            $bulan = 4;
+        }else if($bulan == "Mei"){
+            $bulan = 5;
+        }else if($bulan == "Juni"){
+            $bulan = 6;
+        }else if($bulan == "Juli"){
+            $bulan = 7;
+        }else if($bulan == "Agustus"){
+            $bulan = 8;
+        }else if($bulan == "September"){
+            $bulan = 9;
+        }else if($bulan == "Oktober"){
+            $bulan = 10;
+        }else if($bulan == "November"){
+            $bulan = 11;
+        }else if($bulan == "Desember"){
+            $bulan = 12;
+        }else{
+            $bulan = "TIDAK ADA";
+        }
+
+        $year_diff  = date("Y") - $tahun;
+        $month_diff = date("m") - $bulan;
+        $day_diff   = date("d") - $hari;
+        if ($month_diff < 0) $year_diff--;
+            elseif (($month_diff==0) && ($day_diff < 0)) $year_diff--;
+        return $year_diff;
+    }
+    
+    echo hitung_umur($table_warga->ttl);?>
+</td>
 </tr>
 <tr>
 <td style="padding-left: 50px;">Pekerjaan</td>
@@ -26,7 +67,83 @@
 </tr>
 </tbody>
 </table>
-<p><br />Sehubungan dengan permohonan kami pada Hari/Tanggal Rabu tanggal {{tgl_indo(date("Y-m-d"))}}&nbsp; Kepada Bapak Kapolsek Bengkunat tentang permohonan Surat Izin Keramaian yang akan dilaksanakan pada hari : {{$surat_keramaian->ta}} Dengan Hiburan : <strong>{{$surat_keramaian->hiburan}}</strong></p>
+<p><br />Sehubungan dengan permohonan kami pada <?php
+     $hari = date("D");
+  
+     switch($hari){
+         case 'Sun':
+             $hari_ini = "Minggu";
+         break;
+  
+         case 'Mon':			
+             $hari_ini = "Senin";
+         break;
+  
+         case 'Tue':
+             $hari_ini = "Selasa";
+         break;
+  
+         case 'Wed':
+             $hari_ini = "Rabu";
+         break;
+  
+         case 'Thu':
+             $hari_ini = "Kamis";
+         break;
+  
+         case 'Fri':
+             $hari_ini = "Jumat";
+         break;
+  
+         case 'Sat':
+             $hari_ini = "Sabtu";
+         break;
+         
+         default:
+             $hari_ini = "Tidak di ketahui";		
+         break;
+     }
+  
+     echo $hari_ini;  ?>,&nbsp;{{tgl_indo(date("Y-m-d"))}}&nbsp; Kepada Bapak Kapolsek Bengkunat tentang permohonan Surat Izin Keramaian yang akan dilaksanakan pada hari : <?php
+     $pecahkan = explode('-', $surat_keramaian->tanggal);
+     $hariDariTanggal = mktime(0, 0, 0, $pecahkan[1], $pecahkan[0], $pecahkan[0]);
+     $hari = date("D", $hariDariTanggal);
+  
+     switch($hari){
+         case 'Sun':
+             $hari_ini = "Minggu";
+         break;
+  
+         case 'Mon':			
+             $hari_ini = "Senin";
+         break;
+  
+         case 'Tue':
+             $hari_ini = "Selasa";
+         break;
+  
+         case 'Wed':
+             $hari_ini = "Rabu";
+         break;
+  
+         case 'Thu':
+             $hari_ini = "Kamis";
+         break;
+  
+         case 'Fri':
+             $hari_ini = "Jumat";
+         break;
+  
+         case 'Sat':
+             $hari_ini = "Sabtu";
+         break;
+         
+         default:
+             $hari_ini = "Tidak di ketahui";		
+         break;
+     }
+  
+     echo $hari_ini;  ?>,&nbsp;{{tgl_indo($surat_keramaian->tanggal)}} Dengan Hiburan : <strong>{{$surat_keramaian->hiburan}}</strong></p>
 <p>&nbsp;Yang bertempat di Pekon Bumi Ratu Kecamatan Ngambur Kabupaten Pesisir Barat, dengan ketentuan sebagai berikut :</p>
 <ol>
 <li>Saya Sahibul Hajat berserta Panitia dan Masyarakat setempat bertanggung jawab dalam hal keamanan dan ketertiban dalam rangka pesta tersebut.</li>
@@ -79,7 +196,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;<strong>JURI</strong></p>
+<p>&nbsp;<strong>{{$table_warga->nama}}</strong></p>
 </td>
 </tr>
 </tbody>
@@ -174,7 +291,45 @@ Prihal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp; Permohonan Mendapatkan&nbsp; &nb
 <tr>
 <td style="padding-left: 50px;">Umur</td>
 <td style="padding-left: 10px;">:</td>
-<td style="padding-left: 30px;">{{$table_warga->ttl}}</td>
+<td style="padding-left: 30px;"><?php
+        list($tempat,$hari,$bulan,$tahun) = explode(" ",$table_warga->ttl);
+        
+        if($bulan == "Januari"){
+            $bulan = 1;
+        }else if($bulan == "Februari"){
+            $bulan = 2;
+        }else if($bulan == "Maret"){
+            $bulan = 3;
+        }else if($bulan == "April"){
+            $bulan = 4;
+        }else if($bulan == "Mei"){
+            $bulan = 5;
+        }else if($bulan == "Juni"){
+            $bulan = 6;
+        }else if($bulan == "Juli"){
+            $bulan = 7;
+        }else if($bulan == "Agustus"){
+            $bulan = 8;
+        }else if($bulan == "September"){
+            $bulan = 9;
+        }else if($bulan == "Oktober"){
+            $bulan = 10;
+        }else if($bulan == "November"){
+            $bulan = 11;
+        }else if($bulan == "Desember"){
+            $bulan = 12;
+        }else{
+            $bulan = "TIDAK ADA";
+        }
+
+        $year_diff  = date("Y") - $tahun;
+        $month_diff = date("m") - $bulan;
+        $day_diff   = date("d") - $hari;
+        if ($month_diff < 0) $year_diff--;
+            elseif (($month_diff==0) && ($day_diff < 0)) $year_diff--;
+        echo $year_diff;
+    ?>
+</td>
 </tr>
 <tr>
 <td style="padding-left: 50px;">Pekerjaan</td>
@@ -188,7 +343,7 @@ Prihal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp; Permohonan Mendapatkan&nbsp; &nb
 </tr>
 </tbody>
 </table>
-<p>Orang tersebut di atas bermaksud akan mengadakan acara Resepsi Pernikahan Putrinya (mempelai cewe(Fenti Krisdianti Binti Juri) Dengan mempelai cowo(Triyono Bin Sadimin))Adapun rencana acara tersebut akan dilaksanakan pada :</p>
+<p>Orang tersebut di atas bermaksud akan mengadakan acara Resepsi Pernikahan {{$surat_keramaian->pria}} dengan {{$surat_keramaian->perempuan}}. Adapun rencana acara tersebut akan dilaksanakan pada :</p>
 {{--  <p>&nbsp;</p>  --}}
 {{--  <table>
 <tbody>
@@ -255,12 +410,52 @@ Prihal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp; Permohonan Mendapatkan&nbsp; &nb
 <tr>
 <td style="padding-left: 50px;">Hari</td>
 <td style="padding-left: 10px;">:</td>
-<td style="padding-left: 30px;">{{$table_warga->nama}}</td>
+<td style="padding-left: 30px;"><?php
+     $pecahkan = explode('-', $surat_keramaian->tanggal);
+     $hariDariTanggal = mktime(0, 0, 0, $pecahkan[1], $pecahkan[0], $pecahkan[0]);
+     $hari = date("D", $hariDariTanggal);
+  
+     switch($hari){
+         case 'Sun':
+             $hari_ini = "Minggu";
+         break;
+  
+         case 'Mon':			
+             $hari_ini = "Senin";
+         break;
+  
+         case 'Tue':
+             $hari_ini = "Selasa";
+         break;
+  
+         case 'Wed':
+             $hari_ini = "Rabu";
+         break;
+  
+         case 'Thu':
+             $hari_ini = "Kamis";
+         break;
+  
+         case 'Fri':
+             $hari_ini = "Jumat";
+         break;
+  
+         case 'Sat':
+             $hari_ini = "Sabtu";
+         break;
+         
+         default:
+             $hari_ini = "Tidak di ketahui";		
+         break;
+     }
+  
+     echo $hari_ini;  ?>
+</td>
 </tr>
 <tr>
 <td style="padding-left: 50px;">Tanggal</td>
 <td style="padding-left: 10px;">:</td>
-<td style="padding-left: 30px;">"{{$table_warga->warga_tanggal_acara}}"</td>
+<td style="padding-left: 30px;">{{tgl_indo($surat_keramaian->tanggal)}}</td>
 </tr>
 <tr>
 <td style="padding-left: 50px;">Waktu</td>
@@ -270,7 +465,7 @@ Prihal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp; Permohonan Mendapatkan&nbsp; &nb
 <tr>
 <td style="padding-left: 50px;">Tempat</td>
 <td style="padding-left: 10px;">:</td>
-<td style="padding-left: 30px;">"$table_warga->alamat"</td>
+<td style="padding-left: 30px;">Pekon Bumi Ratu Kecamatan Ngambur</td>
 </tr>
 <tr>
 <td style="padding-left: 50px;">Hiburan</td>

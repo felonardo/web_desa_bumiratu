@@ -18,6 +18,8 @@ class CreateKeramaianTable extends Migration
             $table->string('nik');
             $table->string('hiburan');
             $table->date('tanggal');
+            $table->string('pria');
+            $table->string('perempuan');
             $table->timestamps();
         });
     }

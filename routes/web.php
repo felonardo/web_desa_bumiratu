@@ -34,7 +34,7 @@ Route::get('/login', function () {
 
 
 Route::get(
-    '/keramaian/cetakkeramaian/{id}',
+    '/keramaianAdmin/cetakkeramaian/{id}',
     ['as' => 'cetakkeramaian', 'uses' => 'KeramaianController@cetakkeramaian']
 );
 Route::get(
@@ -44,8 +44,8 @@ Route::get(
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/home', 'AdminController');
-    Route::resource('/keramaian', 'AdminKeramaianController');
-    Route::resource('/tidakmampu', 'AdminTidakMampuController');
+    Route::resource('/keramaianAdmin', 'AdminKeramaianController');
+    Route::resource('/tidakmampuAdmin', 'AdminTidakMampuController');
 });
 Auth::routes();
 
