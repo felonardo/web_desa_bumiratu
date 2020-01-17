@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Keramaian;
+use App\table_warga;
 use App\Warga;
 use View;
 
+use Barryvdh\DomPDF\Facade as PDF;
 class KeramaianController extends Controller
 {
     protected $rules =
@@ -47,4 +49,22 @@ class KeramaianController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
         }
     }
+     public function cetakkeramaian($id)
+    {
+        $keramaian= Keramaian::findOrFail($id);
+
+        // $nik = $post->nik;
+
+        // $post = Post::findOrFail($id);
+        // // $post->nik = $request->nik;
+
+        // $table_warga = DB::table('table_warga')
+        //     ->where('nik', 'like', "%" . $post->nik . "%");
+        // ->paginate();
+        $table_warga = table_warga::where('nik', '=', $keramaian->nik)->firstOrFail();
+
+        $pdf = PDF::loadview('surat_ik_pdf', ['table_warga' => $table_warga,'surat_keramaian' => $keramaian]);
+        return $pdf->setPaper('legal')->stream();
+    }
 }
+

@@ -12,7 +12,29 @@
 
 <hr style="margin-top: -15px;"/>
 <p style="text-align: center; padding-top: 15px;"><strong><u>SURAT KETERANGAN DOMISILI</u></strong></p>
-<p style="text-align: center; padding-top: -15px;">Nomor : 140 /........../ SKD / XII/ <?php echo date("Y") ?></p>
+<p style="text-align: center; padding-top: -15px;">Nomor : 140 /........../ SKD / <?php  date_default_timezone_set("Asia/Jakarta");
+        function tgl_romawi($tanggal){
+            $bulan = array(
+                1 => 'I',
+                'II',
+                'III',
+                'IV',
+                'V',
+                'VI',
+                'VII',
+                'VIII',
+                'IX',
+                'X',
+                'XI',
+                'XII'
+            );
+
+            $pecahkan = explode('-', $tanggal);
+            
+            return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0]; 
+        }
+        
+        echo tgl_romawi(date("-m-")); ?>/ <?php echo date("Y") ?></p>
 <!-- <h3 style="text-align: center;"><strong>PEMERINTAHAN KABUPATEN PESISIR BARAT</strong><br /><strong>KECAMATAN NGAMBUR</strong><br /><strong>PEKON BUMI RATU</strong></h3>
 <p style="text-align: center;"><em>&nbsp;</em><em>Alamat : </em><em>Jln Proklamator No. 07&nbsp; Pekon Bumi <u>Ratu</u>&nbsp; Ke</em><em>camatan </em><em>&nbsp;Ngambur Kode Post 34891</em></p>
 <hr />

@@ -29,26 +29,23 @@ Route::resource('/domisili', 'DomisiliController');
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/suratizinkegiatan', function () {
-    return view('form_sik');
-});
-Route::get('/suratketeranganpbb', function () {
-    return view('form_pbb');
-});
-Route::get('/suratizindomisili', function () {
-    return view('form_domisili');
-});
-Route::get('/suratketerangantidakmampu', function () {
-    return view('form_skkm');
-});
 
 // Route::get('/home/cetak', 'DomisiliController@cetak');
-Route::get('/home/cetak/{id}',
-        ['as'=> 'cetak', 'uses'=>'DomisiliController@cetak']
+
+
+Route::get(
+    '/keramaian/cetakkeramaian/{id}',
+    ['as' => 'cetakkeramaian', 'uses' => 'KeramaianController@cetakkeramaian']
+);
+Route::get(
+    '/home/cetakdomisili/{id}',
+    ['as' => 'cetakdomisili', 'uses' => 'DomisiliController@cetakdomisili']
 );
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/home', 'AdminController');
+    Route::resource('/keramaian', 'AdminKeramaianController');
+    Route::resource('/tidakmampu', 'AdminTidakMampuController');
 });
 Auth::routes();
 

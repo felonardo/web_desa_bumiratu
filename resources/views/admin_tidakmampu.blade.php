@@ -58,7 +58,7 @@
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-light p-1">
             <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     {{--  <div class="sidebar-brand-icon rotate-n-15">  --}}
             <div class="illustration"><img src="assets/img/logo.png" style="height:40px" ></div>
         {{--  </div>  --}}
@@ -71,9 +71,9 @@
 
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "  type="button" href="/home">Surat Izin Domisili</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaian">Surat Izin Keramaian</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampu">Surat Keterangan Tidak Mampu</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/usaha">Surat Keterangan Usaha</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampu">Surat Keterangan Tidak Mampu</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button">Surat Keterangan PBB</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</a>
 
             </div>
@@ -191,7 +191,7 @@
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Domisili</p>
+                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Keterangan Tidak Mampu</p>
                     </div>
                     <div class="card-body">
                         <!-- <div class="row">
@@ -242,7 +242,7 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetakdomisili', ['id' => $post->id])}}">
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetak', ['id' => $post->id])}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>

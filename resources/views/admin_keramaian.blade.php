@@ -73,7 +73,7 @@
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button " type="button" href="/keramaian">Surat Izin Keramaian</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampu">Surat Keterangan Tidak Mampu</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/tidakmampusekolah">Surat Keterangan Tidak Mampu Sekolah</a>
-                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button" href="/usaha">Surat Keterangan Usaha</a>
+                <a class="btn btn-outline-light btn-block btn-lg bg-success text-center rounded shadow-sm action-button "type="button">Surat Keterangan PBB</a>
                 <a class="btn btn-outline-light btn-block btn-lg bg-successtext-center rounded shadow-sm action-button " type="button">Edit Database Warga</a>
 
             </div>
@@ -191,7 +191,7 @@
                 <h2 class="text-dark mb-4">Halaman Admin</h2>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Domisili</p>
+                        <p class="text-primary m-0 font-weight-bold">Daftar Surat Keramaian</p>
                     </div>
                     <div class="card-body">
                         <!-- <div class="row">
@@ -230,7 +230,7 @@
                                     {{ csrf_field() }}
                                 </thead>
                                 <tbody>
-                                    @foreach($posts as $post)
+                                    @foreach($keramaian as $post)
                                         <tr class="item{{$post->id}}">
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->nik}}</td>
@@ -242,7 +242,7 @@
                                                 <span class="glyphicon glyphicon-edit"></span> Edit</button>
                                                 <button class="delete-modal btn btn-warning" data-id="{{$post->id}}" data-nik="{{$post->nik}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete</button>
-                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetakdomisili', ['id' => $post->id])}}">
+                                                <a class="btn btn-danger" data-id="{{$post->id}}" data-nik="{{$post->nik}}" href="{{route('cetakkeramaian', ['id' => $post->id])}}">
                                                 <span class="glyphicon glyphicon-trash"></span> Cetak</a>
                                             </td>
                                         </tr>
@@ -250,7 +250,7 @@
                                 </tbody>
                             </table>
                         </div><!-- /.panel-body -->
-                        {{$posts->links()}}
+                        {{$keramaian->links()}}
 
                         <!-- <div class="row">
                             <div class="col-md-6 align-self-center">

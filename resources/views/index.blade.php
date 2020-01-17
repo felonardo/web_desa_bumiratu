@@ -9,7 +9,8 @@
 
     <!-- CSFR token for ajax call -->
     <meta name="_token" content="{{ csrf_token() }}"/>
-    <title>Getting Started</title>
+    <title>Bumi Ratu Ngambur</title>
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/Footer-Clean.css">
@@ -152,6 +153,8 @@
     </div>
 
     {{--  <div>  --}}
+
+<section id="page-top"></section>
         <div class="header-blue">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
 
@@ -163,7 +166,7 @@
                         id="navcol-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link" href="/">Beranda</a></li>
-                            <li class="nav-item" role="presentation"><a class="btn  btn-outline-warning    " href="#surat">Buat Surat</a></li>
+                            <li class="nav-item" role="presentation"><a class="btn  btn-outline-warning" href="#surat">Buat Surat</a></li>
                             {{--  <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#">Buat Surat </a>  --}}
                                 {{--  <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Surat Domisili</a><a class="dropdown-item" role="Surat Izin Keramaian" href="#">Surat Izin Keramaian</a><a class="dropdown-item" role="Surat Keterangan Tidak Mampu" href="#">Surat Keterangan Tidak Mampu</a><a class="dropdown-item" role="presentation" href="#">Surat Keterangan Usaha dan PBB</a><a class="dropdown-item" role="presentation" href="#">Surat Pindah Kosong</a></div>  --}}
                             </li>
@@ -262,7 +265,7 @@
                     <p class="description">Surat Keterangan Tidak Mampu merupakan surat yang dibuat untuk menyatakan atau menerangkan bahwa seseorang kurang mempunyai kemampuan atau kelebihan dalam aspek materiil di kehidupannya.</p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-envelope-open icon"></i>
-                    <h3 class="name">Surat Keterangan PBB</h3>
+                    <h3 class="name">Surat Keterangan Usaha</h3>
                     <p class="description">Surat Pemberitahuan Pajak Terhutang Pajak Bumi dan Bangunan (SPPT-PBB). </p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item"><i class="fa fa-newspaper-o icon"></i>
@@ -309,11 +312,18 @@
             </div><br>
 
     <div class="col text-center">
-            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#surat">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#surat">Surat Izin Kegiatan</a></div>
-            <br>
-            <div class="buttons"><a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a><a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
+            <div class="buttons"><a class="btn btn-primary add-modal" role="button" href="#surat">Surat Izin Domisili</a><a class="btn btn-warning add-modal2" type="button" href="#surat">Surat Izin Keramaian</a></div>
             {{--  <br>  --}}
-            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Penghasilan Orang Tua</a></div>
+            <div class="buttons">
+                {{--  <a class="btn btn-success" role="button" href="#">Surat Keterangan PBB</a>  --}}
+                <a class="btn btn-danger" type="button"href="#">Surat Keterangan Usaha</a></div>
+            {{--  <br>  --}}
+            <div class="buttons"><a class="btn btn-dark" role="button" href="#">Surat Keterangan Tidak Mampu Sekolah</a><a class="btn btn-info" type="button"href="/suratketeranganpbb">Surat Keterangan Tidak
+            
+            
+            
+            
+            </a></div>
             </div><br><br><br>
         </div>
     </div>
@@ -393,6 +403,10 @@
             </div>
         </footer>
     </div>
+
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 {{--  </body>  --}}

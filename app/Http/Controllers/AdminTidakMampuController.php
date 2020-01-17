@@ -6,14 +6,9 @@ use Illuminate\Http\Request;
 use Validator;
 use Response;
 use App\Post;
-use App\table_warga;
-use App\Warga;
-// use Barryvdh\DomPDF\PDF;
-use Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Support\Facades\DB;
 use View;
 
-class DomisiliController extends Controller
+class AdminTidakMampuController extends Controller
 {
     protected $rules =
     [
@@ -27,7 +22,9 @@ class DomisiliController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $posts = Post::paginate(6);
+
+        return view('admin_tidakmampu', ['posts' => $posts]);
     }
 
     /**
@@ -48,19 +45,15 @@ class DomisiliController extends Controller
      */
     public function store(Request $request)
     {
-        if (Warga::where('nik', $request->nik)->exists()) {
-            $validator = Validator::make($request->all(), $this->rules);
-            if ($validator->fails()) {
-                return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-            } else {
-                $post = new Post();
-                $post->nik = $request->nik;
-                $post->save();
-                return response()->json($post);
-            }
-        }else{
-            $validator = Validator::make($request->all(), $this->rules);
-            return Response::json(array('errors' => $validator->getMessageBag()->toArray(), 'false' => $validator->getMessageBag()->toArray()));
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->fails()) {
+            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+        } else {
+            $post = new Post();
+            $post->title = $request->title;
+            $post->content = $request->content;
+            $post->save();
+            return response()->json($post);
         }
     }
 
@@ -102,7 +95,8 @@ class DomisiliController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         } else {
             $post = Post::findOrFail($id);
-            $post->nik = $request->nik;
+            $post->title = $request->title;
+            $post->content = $request->content;
             $post->save();
             return response()->json($post);
         }
@@ -120,23 +114,5 @@ class DomisiliController extends Controller
         $post->delete();
 
         return response()->json($post);
-    }
-
-    public function cetakdomisili($id)
-    {
-        $post = Post::findOrFail($id);
-
-        // $nik = $post->nik;
-
-        // $post = Post::findOrFail($id);
-        // // $post->nik = $request->nik;
-
-        // $table_warga = DB::table('table_warga')
-        //     ->where('nik', 'like', "%" . $post->nik . "%");
-        // ->paginate();
-        $table_warga = table_warga::where('nik', '=', $post->nik)->firstOrFail();
-
-        $pdf = PDF::loadview('surat_domisili_pdf', ['table_warga' => $table_warga]);
-        return $pdf->setPaper('a4')->stream();
     }
 }

@@ -9,8 +9,9 @@ class Keramaian extends Model
     protected $table = 'surat_keramaian';
     protected $fillable = ['nik', 'hiburan', 'tanggal'];
 
-    public static function getExcerpt($str, $startPos = 0, $maxLength = 50) {
-        if(strlen($str) > $maxLength) {
+    public static function getExcerpt($str, $startPos = 0, $maxLength = 50)
+    {
+        if (strlen($str) > $maxLength) {
             $excerpt   = substr($str, $startPos, $maxLength - 6);
             $lastSpace = strrpos($excerpt, ' ');
             $excerpt   = substr($excerpt, 0, $lastSpace);
