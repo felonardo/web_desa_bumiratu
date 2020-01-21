@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/tidakmampuAdmin', 'AdminTidakMampuController');
     Route::resource('/tidakmampusekolahAdmin', 'AdminTidakMampuSekolahController');
     Route::resource('/usahaAdmin', 'AdminUsahaController');
+    Route::resource('/wargaAdmin', 'WargaController');
 });
 Auth::routes();
 
