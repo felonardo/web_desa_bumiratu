@@ -1,5 +1,10 @@
+## Preview
+<p align="center"><img src="https://github.com/felonardo/web_desa_bumiratu/blob/master/public/assets/img/home.png" width="400"></p>
+<p align="center"><img src="https://github.com/felonardo/web_desa_bumiratu/blob/master/public/assets/img/make letter section.png" width="400"></p>
+<p align="center"><img src="https://github.com/felonardo/web_desa_bumiratu/blob/master/public/assets/img/make letter section 2.png" width="400"></p>
+<p align="center"><img src="https://github.com/felonardo/web_desa_bumiratu/blob/master/public/assets/img/admin.png" width="400"></p>
+<br><br><br><br><br><br>
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
